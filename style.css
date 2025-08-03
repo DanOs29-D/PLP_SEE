@@ -85,3 +85,106 @@ p {
 .cta:hover {
   background-color: #e67e22;
 }
+.portfolio-header {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #0f172a;
+  color: #f8fafc;
+   margin-bottom: 4rem;
+}
+
+.avatar-portfolio {
+  width: 120px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.portfolio-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-header p {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #1e293b;
+}
+
+.project-card {
+  background-color: #334155;
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: #f1f5f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.project-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #cbd5e1;
+}
+
+.project-card a {
+  text-decoration: none;
+  color: #38bdf8;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.project-card a:hover {
+  color: #7dd3fc;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a; /* Same as index.html */
+  color: #f8fafc;
+}
+
+.portfolio-section {
+  padding: 4rem 6rem; /* more horizontal padding for left alignment */
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  color: #f8fafc;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  text-align: left;
+  color: #94a3b8;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  background-color: transparent; /* remove if previously styled */
+}
