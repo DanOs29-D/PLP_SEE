@@ -1,0 +1,150 @@
+Project Documentation: Daniel Osoro's Portfolio
+
+1. File Structure
+
+Your project is organized into a clean folder structure:
+
+```
+/your-project-folder
+|-- index.html           (The homepage)
+|-- description.html     (The item details page)
+|-- style.css            (All CSS styles)
+|-- /assets
+    |-- favicon.png   
+    |-- logo.gif   
+    |-- background-video.mp4  (The full-page video)
+    |-- daniel.gif            (Used in version 1)
+    |-- headshot.jpg           (Actual image used)
+    |-- KEPhSA.png            (Your ticker images)
+    |-- CIPLA.png
+    |-- Africa.png 
+    |-- Fip.png     
+    |-- linkedin.png   
+    |-- github.jfif   
+    |-- ORCID.png
+```
+
+2 HTML Structure (`index.html`)
+
+The main page is structured into several key sections, all within the `<body>` tag.
+
+```html
+<body>
+    <video id="full-page-video"></video>
+
+    <header class="site-header"></header>
+
+    <section class="hero"></section>
+
+    <section id="about-me" class="about-me-section"></section>
+
+    <h2>Work Experience</h2>
+
+    <section class="ticker-section"></section>
+
+    <section id="contact" class="contact-section"></section>
+</body>
+```
+
+3 HTML Structure (`description.html`)
+
+The `description.html` page uses the same video background and header, but replaces the main content with a single container for all your item descriptions.
+
+```html
+<body>
+    <video id="full-page-video"></video>
+    <header class="site-header"></header>
+
+    <main class="descriptions-main">
+        <div id="item1" class="item-description"></div>
+        <div id="item2" class="item-description"></div>
+        </main>
+</body>
+```
+
+4. CSS Overview (`style.css`)
+
+The `style.css` file contains all the styling for your entire website. It's organized into logical sections using comments, making it easy to find and edit specific parts.
+
+  * **General Styles:** Base styling for the `html` and `body`, including `scroll-behavior: smooth;`
+  * **Full-Page Video:** Styles to position the video as a background.
+  * **Header Styling:** Flexbox layout and styling for the navigation.
+  * **Hero Section:** Centered content with the profile picture and main heading.
+  * **Ticker Section:** The complex animation logic and item styling.
+  * **Description Page Styling:** The Flexbox layout for the item details.
+  * **About Me Section:** The two-column layout for your bio.
+  * **Contact Section:** The centered layout for your social media links.
+
+5. Key Features and Code Snippets
+
+Here are the most important and complex features we've implemented:
+
+**A. Seamless Scrolling Ticker**
+
+  * **HTML:** The key is to repeat your ticker items inside the `.ticker-container` to create a seamless loop.
+    ```html
+    <div class="ticker-container">
+        <a href="description.html#item1" ...><div class="ticker-item">...</div></a>
+        <a href="description.html#item2" ...><div class="ticker-item">...</div></a>
+        <a href="description.html#item1" ...><div class="ticker-item">...</div></a>
+        <a href="description.html#item2" ...><div class="ticker-item">...</div></a>
+    </div>
+    ```
+  * **CSS:** The animation moves the container by exactly half its width (`-50%`), creating the illusion of an endless loop.
+    ```css
+    .ticker-container {
+        animation: ticker-scroll 25s linear infinite;
+    }
+    .ticker-container:hover {
+        animation-play-state: paused;
+    }
+    @keyframes ticker-scroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+    }
+    ```
+
+**B. Interactive Navigation**
+
+  * **Same-Page Links:** For navigating to the "About Me" and "Contact" sections on `index.html`, the `href` points to the section's `id`.
+    ```html
+    <a href="#about-me">About Me</a>
+    <section id="about-me" ...>...</section>
+    ```
+  * **Multi-Page Links:** For navigating from `description.html` back to a specific section on `index.html`, the `href` includes the filename.
+    ```html
+    <a href="index.html#about-me">About Me</a>
+    ```
+
+**C. Flexbox Layouts (About & Descriptions)**
+
+We used Flexbox to create clean, two-column layouts for the "About Me" and description pages.
+
+  * **HTML:** The layout consists of a main container, and two child containers for the content.
+    ```html
+    <div class="about-me-container">
+        <div class="about-me-media"></div> <div class="about-me-text"></div> </div>
+    ```
+  * **CSS:** The `display: flex;` property on the parent container is the key.
+    ```css
+    .about-me-container, .item-description {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+    }
+    ```
+
+**D. CSS Hover Effects**
+
+All interactive elements use `transition` and `:hover` pseudo-classes to create smooth, animated feedback.
+
+  * **Example:**
+    ```css
+    .cta {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cta:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    ```
